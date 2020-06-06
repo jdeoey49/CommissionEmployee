@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+
 	try
 	{
 		//base-class pointer to base-class object(invoked base-class member function)
