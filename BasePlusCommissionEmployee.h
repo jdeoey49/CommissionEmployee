@@ -16,8 +16,8 @@ public:
    void setBaseSalary( double ); // set base salary
    double getBaseSalary() const; // return base salary
 
-   double earnings() const; // calculate earnings
-   void print() const; // print BasePlusCommissionEmployee object
+   virtual double earnings() const override; // calculate earnings
+   virtual void print() const override; // print BasePlusCommissionEmployee object
 private:
    double base_salary_; // base salary
 }; // end class BasePlusCommissionEmployee

@@ -8,29 +8,61 @@ using namespace std;
 
 int main()
 {
-   try {
-	   // try to instantiate BasePlusCommissionEmployee object
-   		BasePlusCommissionEmployee 
-      	employee( "Bob", "Lewis", "333-33-3333", 5000, .04, 300 );
-   
-   		// set floating-point output formatting
-   		cout << fixed << setprecision( 2 );
+	try
+	{
+		//output objects using static binding
+		/*
+		CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000, .06);
+		CommissionEmployee* commissionEmployeePtr = nullptr;
 
-		employee.print();
-   		employee.setBaseSalary( 1000 ); // set base salary
-		employee.setCommissionRate(0.1);
+		BasePlusCommissionEmployee basePlusCommissionEmploee("Bob", "Lewis", "333-33-3333", 5000, .04, 300);
+		BasePlusCommissionEmployee* basePlusCommissionEmploeePtr = nullptr;
 
-   		cout << "\nUpdated employee information output by print function: \n" 
-      		 << endl;
-   		employee.print(); // display the new employee information
-   
-   		// display the employee's earnings
-   		cout << "\n\nEmployee's earnings: $" << employee.earnings() << endl;
-   	} // end try
+		cout << fixed << setprecision(2);
+		cout << "Invoking print function on base-class and derived-class"
+			<< "\nobjects with static binding\n\n";
+
+		commissionEmployee.print();//static binding
+		cout << "\n\n";
+		basePlusCommissionEmploee.print();//static binding
+		*/
+
+
+		//output objects using dynamic binding
+		
+		CommissionEmployee commissionEmployee("Sue", "Jones", "222-22-2222", 10000, .06);
+		CommissionEmployee* commissionEmployeePtr = nullptr;
+
+		BasePlusCommissionEmployee basePlusCommissionEmploee("Bob", "Lewis", "333-33-3333", 5000, .04, 300);
+		BasePlusCommissionEmployee* basePlusCommissionEmploeePtr = nullptr;
+
+		cout << "Invoking print function on base-class and"
+			<< " derived-class \nobjects with dynamic binding";
+		commissionEmployeePtr = &commissionEmployee;
+		cout << "\n\nCalling virtual function print with base-class pointer"
+			<< "\nto base-class object invokes base-class" << " print function:\n\n";
+		commissionEmployeePtr->print();
+
+		basePlusCommissionEmploeePtr = &basePlusCommissionEmploee;
+		cout << "\n\nCalling virtual function point with derived-class "
+			<< "pointer \nto derived-class object invokes derived-class "\
+			<< "print function:\n\n";
+		basePlusCommissionEmploeePtr->print();
+
+		//aim base-class pointer at a derived-class object and print
+		commissionEmployeePtr = &basePlusCommissionEmploee;
+		cout << "\n\nCalling virtual functon print with base-class pointer"
+			<< "\nto derived-class object invokes derived-class "
+			<< "print function:\n\n";
+		//polymorphism; invokes BasePlusCommissionEmployee's print;
+		//base-class pointer to derived class object
+		commissionEmployeePtr->print();
+	}
+	catch(invalid_argument& i)
+	{
+		cout << i.what();
+	}
 	
-	catch (invalid_argument& e ){
-		cerr << "\nInvalid argument: " << e.what() << endl;
-	} // end catch
 } // end main
 
 

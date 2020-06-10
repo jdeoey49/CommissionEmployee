@@ -26,8 +26,8 @@ public:
    void setCommissionRate( double ); // set commission rate (percentage)
    double getCommissionRate() const; // return commission rate
 
-   double earnings() const; // calculate earnings
-   void print() const; // print CommissionEmployee object
+   virtual double earnings() const; // calculate earnings
+   virtual void print() const; // print CommissionEmployee object
 private:
    std::string first_name_;
    std::string last_name_;
