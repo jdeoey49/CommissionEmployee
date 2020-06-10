@@ -1,1 +1,8 @@
+    //base-class pointer to base-class object(invoked base-class member function)
+		
 
+		//derived-class pointer to derived-class object(invoked derive-class member function)
+		
+
+		//base-class pointer to derived-class object(invoked base-class member function)
+		*not using keyword "virtual"
