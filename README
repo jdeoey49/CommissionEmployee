@@ -1,0 +1,16 @@
+// Output objects uding static binding
+   1.	
+		  cout << "Invoking print function on base-class and derived-class"
+			<< "\nobjects with static binding\n\n";
+
+		  commissionEmployee.print();//static binding
+		  cout << "\n\n";
+		  basePlusCommissionEmploee.print();//static binding
+
+
+
+// Output objects using dynamic binding
+   1.aim base-class pointer at base-class object and print
+   2.aim derived-class pointer at derived-class object and print
+   3.aim base-class pointer at derived class object and print
+    (Using "virtual" keyword)
